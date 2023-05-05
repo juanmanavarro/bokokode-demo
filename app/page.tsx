@@ -15,10 +15,14 @@ export default function Home() {
                 <a href=""><CartIcon /></a>
             </header>
             {isLoading ? <h1>loading</h1> : (
-                <section className="featured-product mt-5">
+                <section className="featured-product mt-10">
                     <div className="featured-product-header">
                         <h2 className="h2">{featuredProduct.name}</h2>
                         <button className="button-black">Add to cart</button>
+                    </div>
+                    <div className="featured-product-image">
+                        <img src={featuredProduct.image.src} alt={featuredProduct.image.alt} />
+                        <div className="caption">Photo of the day</div>
                     </div>
                 </section>
             )}
