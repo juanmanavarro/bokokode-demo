@@ -5,6 +5,8 @@ import CartIcon from "./icons/cart";
 
 export default function Home() {
     const { data, error, isLoading } = useGetProducts();
+    const products = data?.data.data;
+    const featuredProduct = products?.find((product: any) => product.featured === true);
 
     return (
         <main className="container">
@@ -13,9 +15,9 @@ export default function Home() {
                 <a href=""><CartIcon /></a>
             </header>
             {isLoading ? <h1>loading</h1> : (
-                <section className="main-product mt-5">
-                    <div className="main-product-header">
-                        <h2 className="h2">{data.data.data[0].name}</h2>
+                <section className="featured-product mt-5">
+                    <div className="featured-product-header">
+                        <h2 className="h2">{featuredProduct.name}</h2>
                         <button className="button-black">Add to cart</button>
                     </div>
                 </section>
