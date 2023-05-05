@@ -1,0 +1,8 @@
+.main-product {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 2px;
+    }
+}
