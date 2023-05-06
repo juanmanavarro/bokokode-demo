@@ -2,8 +2,11 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
     return (
         <section>
             <div className="flex justify-between items-center py-3 px-2">
-                <div>Photography / <span>Premium Photos</span></div>
-                <div>Sort by: <a href="">Price </a></div>
+                <div className="text-xl">
+                    <span className="font-bold">Photography / </span>
+                    <span>Premium Photos</span>
+                </div>
+                <div>Sort by: <a href="" className="font-bold">Price &#9660;</a></div>
             </div>
             <div className="grid grid-cols-3 gap-4 py-3 px-2">
                 <aside className="p-2">
