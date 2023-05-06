@@ -2,11 +2,15 @@
 
 import { useGetProducts } from "@/components/useRequest";
 import CartIcon from "./icons/cart";
+import { useState } from "react";
+import FeaturedProduct from "@/components/featured-product";
 
 export default function Home() {
-    const { data, error, isLoading } = useGetProducts();
+    const [pageIndex, setPageIndex] = useState(0);
+    const { data, error, isLoading } = useGetProducts(pageIndex);
     const products = data?.data.data;
     const featuredProduct = products?.find((product: any) => product.featured === true);
+    const paginationLinks = data?.data.links;
 
     return (
         <main className="container">
@@ -16,31 +20,7 @@ export default function Home() {
             </header>
             {isLoading ? <h1>loading</h1> : (
                 <>
-                    <section className="fp mt-10">
-                        <div className="fp-header">
-                            <h2 className="h2">{featuredProduct.name}</h2>
-                            <button className="button-black">Add to cart</button>
-                        </div>
-                        <div className="fp-image">
-                            <img src={featuredProduct.image.src} alt={featuredProduct.image.alt} />
-                            <div className="caption">Photo of the day</div>
-                        </div>
-                        <div className="fp-footer">
-                            <div className="fp-description">
-                                <h4>About the {featuredProduct.name}</h4>
-                                <p>{featuredProduct.category}</p>
-                                <p>{featuredProduct.description}</p>
-                            </div>
-                            <div className="fp-related">
-                                <h4>People also buy</h4>
-                                <div className="related-products">
-                                    <div className="related-product"></div>
-                                    <div className="related-product"></div>
-                                    <div className="related-product"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <FeaturedProduct product={featuredProduct} />
                     <section>
                         <div className="flex justify-between items-center py-3 px-2">
                             <div>Photography / <span>Premium Photos</span></div>
@@ -80,17 +60,28 @@ export default function Home() {
                                     </li>
                                 </ul>
                             </aside>
-                            <div className="col-span-2 bg-green-500 p-2 grid grid-cols-3 gap-4">
-                                {products?.map((product: any) => (
-                                    <div className="product" key={product._id}>
-                                        <img className="w-full" src={product.image.src} alt={product.image.alt} />
-                                        <div className="product-footer">
-                                            <div className="product-category">{product.category}</div>
-                                            <div className="product-name">{product.name}</div>
-                                            <div className="product-price">$ {product.price}</div>
+                            <div className="col-span-2 bg-green-500 p-2">
+                                <div className="grid grid-cols-3 gap-4">
+                                    {products?.map((product: any) => (
+                                        <div className="product" key={product._id}>
+                                            <img className="w-full" src={product.image.src} alt={product.image.alt} />
+                                            <div className="product-footer">
+                                                <div className="product-category">{product.category}</div>
+                                                <div className="product-name">{product.name}</div>
+                                                <div className="product-price">$ {product.price}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
+                                <div className="pagination flex justify-center align-center mt-3">
+                                    {paginationLinks?.map((link: any) => (
+                                        <a onClick={() => {
+                                            setPageIndex(link.label)
+                                        }} className="pagination-item mx-1" key={link.label}>
+                                            {link.label}
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </section>
