@@ -39,15 +39,25 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
                         </li>
                     </ul>
                 </aside>
-                <div className="col-span-2 bg-green-500 p-2">
+                <div className="col-span-2 p-2">
                     <div className="grid grid-cols-3 gap-4">
                         {products?.map((product: any) => (
                             <div className="product" key={product._id}>
-                                <img className="w-full" src={product.image.src} alt={product.image.alt} />
-                                <div className="product-footer">
-                                    <div className="product-category">{product.category}</div>
-                                    <div className="product-name">{product.name}</div>
-                                    <div className="product-price">$ {product.price}</div>
+                                <div
+                                    className="w-full h-full"
+                                    style={{
+                                        backgroundImage: `url(${product.image.src})`,
+                                        height: '300px',
+                                        backgroundPosition: 'center',
+                                        backgroundSize: 'cover',
+                                        backgroundRepeat: 'no-repeat'
+                                    }}
+                                >
+                                </div>
+                                <div className="product-footer py-2">
+                                    <div className="capitalize text-sm text-gray-500">{product.category}</div>
+                                    <div className="truncate text-ellipsis overflow-hidden font-bold">{product.name}</div>
+                                    <div className="product-price text-gray-500">$ {product.price}</div>
                                 </div>
                             </div>
                         ))}
