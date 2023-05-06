@@ -8,7 +8,7 @@ import Products from "@/components/products";
 
 export default function Home() {
     const [pageIndex, setPageIndex] = useState(0);
-    const { data, error, isLoading } = useGetProducts(pageIndex);
+    const { data, isLoading } = useGetProducts(pageIndex);
     const products = data?.data.data;
     const featuredProduct = products?.find((product: any) => product.featured === true);
     const paginationLinks = data?.data.links;
@@ -21,7 +21,7 @@ export default function Home() {
             </header>
             {isLoading ? <h1>loading</h1> : (
                 <>
-                    <FeaturedProduct product={featuredProduct} />
+                    {featuredProduct && <FeaturedProduct product={featuredProduct} />}
                     <Products
                         products={products}
                         paginationLinks={paginationLinks}
