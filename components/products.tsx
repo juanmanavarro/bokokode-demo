@@ -6,37 +6,15 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
                 <div>Sort by: <a href="">Price </a></div>
             </div>
             <div className="grid grid-cols-3 gap-4 py-3 px-2">
-                <aside className="bg-red-500 p-2">
-                    <h5>Category</h5>
-                    <ul>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">People</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Premium</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Pets</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Food</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Landmarks</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Cities</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Nature</label>
-                        </li>
+                <aside className="p-2">
+                    <h5 className="text-xl font-bold">Category</h5>
+                    <ul className="mt-3">
+                        {['people', 'premium', 'pets', 'food', 'landmarks', 'cities', 'nature'].map((category: string) => (
+                            <li className="mb-3" key={category}>
+                                <input className="me-2 accent-gray-500" type="checkbox" name="" id="" />
+                                <label className="capitalize" htmlFor="">{category}</label>
+                            </li>
+                        ))}
                     </ul>
                 </aside>
                 <div className="col-span-2 p-2">
