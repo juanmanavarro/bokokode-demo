@@ -1,4 +1,4 @@
-export default function Products({ products, paginationLinks, setPageIndex }: { products: any[], paginationLinks: any[], setPageIndex: any}) {
+export default function Products({ products, paginationLinks, setPageIndex }: { products: any[], paginationLinks: any[], setPageIndex: Function}) {
     return (
         <section>
             <div className="flex justify-between items-center py-3 px-2">
@@ -62,16 +62,28 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
                             </div>
                         ))}
                     </div>
-                    <div className="pagination flex justify-center align-center mt-3">
-                        {paginationLinks?.map((link: any) => (
+                    <div className="pagination flex justify-center align-center mt-10">
+                        <a
+                            onClick={() => null}
+                            className="mx-1 cursor-pointer font-bold"
+                        >
+                            {'<'}
+                        </a>
+                        {paginationLinks?.slice(1, -1).map((link: any) => (
                             <a
                                 onClick={() => setPageIndex(link.label)}
-                                className="pagination-item mx-1"
+                                className={`mx-1 cursor-pointer ${link.active ? 'font-bold' : 'text-gray-500'}`}
                                 key={link.label}
                             >
                                 {link.label}
                             </a>
                         ))}
+                        <a
+                            onClick={() => null}
+                            className="mx-1 cursor-pointer font-bold"
+                        >
+                            {'>'}
+                        </a>
                     </div>
                 </div>
             </div>
