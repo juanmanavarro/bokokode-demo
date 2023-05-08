@@ -21,6 +21,13 @@ export default function Products() {
     }, [categories, pageIndex])
 
     const setFilter = async(category: string) => {
+        // to clearing the filter in mobile
+        // it doesn't work update the ui, for this is better to use some state management
+        if ( !category ) {
+            setCategories([])
+            return;
+        }
+
         if ( categories.includes(category) ) {
             setCategories(categories.filter(cat => cat !== category))
         } else {
@@ -37,7 +44,7 @@ export default function Products() {
                     <span>Premium Photos</span>
                 </div>
                 <div className="text-black text-sm block md:hidden">
-                    <Filter />
+                    <Filter onFilter={setFilter} />
                 </div>
                 <div className="hidden md:block">Sort by: <a href="" className="font-bold">Price &#9660;</a></div>
             </div>
