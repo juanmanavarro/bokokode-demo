@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <main className="container">
             <header className="header">
-                <h1 className="h1">BEJAMAS_</h1>
+                <p className="logo">BEJAMAS_</p>
                 <a href=""><CartIcon /></a>
             </header>
             {isLoading ? <h1>loading</h1> : (
