@@ -25,7 +25,7 @@ export default function Product({ product, height }: { product: any, height?: st
             </div>
             <div className="py-2">
                 <div className="capitalize text-sm text-gray-500">{product.category}</div>
-                <div className="truncate text-ellipsis overflow-hidden font-bold">{product.name}</div>
+                <div className="truncate text-ellipsis overflow-hidden title-4">{product.name}</div>
                 <div className="text-gray-500">$ {product.price}</div>
             </div>
         </div>

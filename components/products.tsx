@@ -6,7 +6,7 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
         <section className="relative">
             <div className="flex justify-between items-center py-3 px-2">
                 <div className="md:text-xl">
-                    <span className="font-bold">Photography / </span>
+                    <span className="title-3">Photography / </span>
                     <span>Premium Photos</span>
                 </div>
                 <div className="text-black text-sm block md:hidden">
@@ -16,7 +16,7 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
             </div>
             <div className="md:grid md:grid-cols-3 md:gap-4 py-3 px-2">
                 <aside className="p-2 hidden md:block">
-                    <h5 className="text-xl font-bold">Category</h5>
+                    <h5 className="title-3">Category</h5>
                     <ul className="mt-3">
                         {['people', 'premium', 'pets', 'food', 'landmarks', 'cities', 'nature'].map((category: string) => (
                             <li className="mb-3" key={category}>
@@ -27,7 +27,7 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
                     </ul>
                 </aside>
                 <div className="col-span-2 md:p-2">
-                    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4">
+                    <div className="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-4">
                         {products?.map((product: any) => (
                             <Product product={product} key={product._id} />
                         ))}
