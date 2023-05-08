@@ -26,7 +26,7 @@ export default function Products() {
                 <aside className="p-2 hidden md:block">
                     <h5 className="title-3">Category</h5>
                     <ul className="mt-3">
-                        <FilterItems />
+                        {/* <FilterItems /> */}
                     </ul>
                 </aside>
                 <div className="col-span-2 md:p-2">

@@ -1,13 +1,26 @@
 'use client'
 
-import { useGetProducts } from "@/components/useRequest"
 import CartIcon from "@/app/assets/icons/cart"
 import FeaturedProduct from "@/components/featured-product"
 import Products from "@/components/products"
+import { useFetchProducts } from "./hooks/useApi"
+import { useEffect, useState } from "react"
 
 export default function Home() {
-    const { data, isLoading } = useGetProducts()
-    const featuredProduct = data?.data.data.find((product: any) => product.featured === true)
+    const [featuredProduct, setFeaturedProduct] = useState<any>(null)
+    const [loading, setLoading] = useState<boolean>(true)
+
+    useEffect(() => {
+        useFetchProducts({})
+            .then(res => {
+                const featured = res?.data.data
+                    .find((product: any) => product.featured === true);
+                setFeaturedProduct(featured)
+                setLoading(false)
+            })
+    }, [])
+
+    if ( loading ) return <h1>loading</h1>
 
     return (
         <main className="container">
@@ -15,12 +28,8 @@ export default function Home() {
                 <p className="logo">BEJAMAS_</p>
                 <a href=""><CartIcon /></a>
             </header>
-            {isLoading ? <h1>loading</h1> : (
-                <>
-                    {featuredProduct && <FeaturedProduct product={featuredProduct} />}
-                    <Products />
-                </>
-            )}
+            <FeaturedProduct product={featuredProduct} />
+            <Products />
         </main>
     )
 }
