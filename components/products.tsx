@@ -1,12 +1,15 @@
+import FilterIcon from '@/app/assets/icons/filter';
+
 export default function Products({ products, paginationLinks, setPageIndex }: { products: any[], paginationLinks: any[], setPageIndex: Function}) {
     return (
         <section>
             <div className="flex justify-between items-center py-3 px-2">
-                <div className="text-xl">
+                <div className="md:text-xl">
                     <span className="font-bold">Photography / </span>
                     <span>Premium Photos</span>
                 </div>
-                <div>Sort by: <a href="" className="font-bold">Price &#9660;</a></div>
+                <div className="text-black text-sm block md:hidden"><FilterIcon /></div>
+                <div className="hidden md:block">Sort by: <a href="" className="font-bold">Price &#9660;</a></div>
             </div>
             <div className="grid grid-cols-3 gap-4 py-3 px-2">
                 <aside className="p-2">
