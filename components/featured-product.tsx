@@ -22,8 +22,8 @@ export default function FeaturedProduct({ product }: { product: any }) {
                     <h4 className="font-bold text-xl mb-3 mt-5 md:mt-0">People also buy</h4>
                     <div className="grid grid-cols-3 gap-2">
                         {product?.people_also_buy.map((related: any) => (
-                            <div className="related-product">
-                                <Product product={related} height="200px" key={related._id} />
+                            <div className="related-product" key={related._id}>
+                                <Product product={related} height="200px" />
                             </div>
                         ))}
                     </div>
