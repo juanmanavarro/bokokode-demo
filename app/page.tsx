@@ -2,16 +2,12 @@
 
 import { useGetProducts } from "@/components/useRequest"
 import CartIcon from "@/app/assets/icons/cart"
-import { useState } from "react"
 import FeaturedProduct from "@/components/featured-product"
 import Products from "@/components/products"
 
 export default function Home() {
-    const [pageIndex, setPageIndex] = useState(0)
-    const { data, isLoading } = useGetProducts(pageIndex)
-    const products = data?.data.data
-    const featuredProduct = products?.find((product: any) => product.featured === true)
-    const paginationLinks = data?.data.links
+    const { data, isLoading } = useGetProducts()
+    const featuredProduct = data?.data.data.find((product: any) => product.featured === true)
 
     return (
         <main className="container">
@@ -22,11 +18,7 @@ export default function Home() {
             {isLoading ? <h1>loading</h1> : (
                 <>
                     {featuredProduct && <FeaturedProduct product={featuredProduct} />}
-                    <Products
-                        products={products}
-                        paginationLinks={paginationLinks}
-                        setPageIndex={setPageIndex}
-                    />
+                    <Products />
                 </>
             )}
         </main>

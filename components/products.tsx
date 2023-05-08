@@ -1,7 +1,15 @@
+import FilterItems from './filter/items';
 import Product from './product';
-import Filter from './filter';
+import Filter from '@/components/filter/index';
+import { useGetProducts } from './useRequest';
+import { useState } from 'react';
 
-export default function Products({ products, paginationLinks, setPageIndex }: { products: any[], paginationLinks: any[], setPageIndex: Function}) {
+export default function Products() {
+    const [pageIndex, setPageIndex] = useState(0)
+    const { data, isLoading } = useGetProducts(pageIndex)
+    const products = data?.data.data
+    const paginationLinks = data?.data.links
+
     return (
         <section className="relative">
             <div className="flex justify-between items-center py-3 px-2">
@@ -18,12 +26,7 @@ export default function Products({ products, paginationLinks, setPageIndex }: { 
                 <aside className="p-2 hidden md:block">
                     <h5 className="title-3">Category</h5>
                     <ul className="mt-3">
-                        {['people', 'premium', 'pets', 'food', 'landmarks', 'cities', 'nature'].map((category: string) => (
-                            <li className="mb-3" key={category}>
-                                <input className="me-2 accent-gray-500" type="checkbox" name="" id="" />
-                                <label className="capitalize" htmlFor="">{category}</label>
-                            </li>
-                        ))}
+                        <FilterItems />
                     </ul>
                 </aside>
                 <div className="col-span-2 md:p-2">
