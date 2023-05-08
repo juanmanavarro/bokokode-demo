@@ -37,14 +37,14 @@ export default function Products() {
                     </div>
                     <div className="pagination flex justify-center align-center mt-10">
                         <a
-                            onClick={() => null}
+                            onClick={() => setPageIndex(Number(pageIndex <= 1 ? pageIndex : pageIndex - 1))}
                             className="mx-1 cursor-pointer font-bold"
                         >
                             {'<'}
                         </a>
                         {paginationLinks?.slice(1, -1).map((link: any) => (
                             <a
-                                onClick={() => setPageIndex(link.label)}
+                                onClick={() => setPageIndex(Number(link.label))}
                                 className={`mx-1 cursor-pointer ${link.active ? 'font-bold' : 'text-gray-500'}`}
                                 key={link.label}
                             >
@@ -52,7 +52,7 @@ export default function Products() {
                             </a>
                         ))}
                         <a
-                            onClick={() => null}
+                            onClick={() => setPageIndex(Number(pageIndex >= 9 ? pageIndex : pageIndex + 1))}
                             className="mx-1 cursor-pointer font-bold"
                         >
                             {'>'}
