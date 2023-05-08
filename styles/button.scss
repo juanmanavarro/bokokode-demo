@@ -1,7 +1,5 @@
-.button-black {
+@mixin button {
     padding: 8px 24px;
-    background-color: #000;
-    color: #fff;
     border-radius: 0;
     text-align: center;
     text-decoration: none;
@@ -9,8 +7,30 @@
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
     text-transform: uppercase;
+    border: 1px solid #000;
 }
 
-.button-black:hover {
-    background-color: #4b4b4b;
+.button {
+    &-black {
+        @include button;
+        background-color: #000;
+        color: #fff;
+
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+
+    &-white {
+        @include button;
+        background-color: #fff;
+        color: #000;
+
+        &:hover {
+
+            background-color: #000;
+            color: #fff;
+        }
+    }
 }
