@@ -18,6 +18,7 @@ export default function Product({ product, height }: { product: any, height?: st
                     backgroundRepeat: 'no-repeat'
                 }}
             >
+                {product.bestseller && <div className="caption">Best seller</div>}
                 <button className={`button-black truncate w-full absolute inset-x-0 bottom-0 ${showAddToCard ? 'block' : 'hidden'}`}>
                     Add to cart
                 </button>
