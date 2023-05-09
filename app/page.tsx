@@ -5,6 +5,7 @@ import FeaturedProduct from "@/components/featured-product"
 import Products from "@/components/products"
 import { useFetchProducts } from "./hooks/useApi"
 import { useEffect, useState } from "react"
+import SpinnerIcon from "./assets/icons/spinner"
 
 export default function Home() {
     const [featuredProduct, setFeaturedProduct] = useState<any>(null)
@@ -20,7 +21,13 @@ export default function Home() {
             })
     }, [])
 
-    if ( loading ) return <h1>loading</h1>
+    if ( loading ) {
+        return (
+            <main className="container h-screen flex justify-center items-center">
+                <SpinnerIcon />
+            </main>
+        )
+    }
 
     return (
         <main className="container">
