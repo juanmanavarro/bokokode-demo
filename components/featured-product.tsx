@@ -9,8 +9,8 @@ export default function FeaturedProduct({ product }: { product: any }) {
                 </h1>
                 <button className="button-black hidden md:block">Add to cart</button>
             </div>
-            <div className="fp-image relative mb-5">
-                <img src={product?.image.src} alt={product?.image.alt} />
+            <div className="fp-image relative mb-5 w-full">
+                <img className="w-full" src={product?.image.src} alt={product?.image.alt} />
                 <div className="caption bottom-0">Photo of the day</div>
             </div>
             <button className="button-black w-full md:hidden mb-5">Add to cart</button>
