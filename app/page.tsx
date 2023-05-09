@@ -1,8 +1,8 @@
 'use client'
 
 import CartIcon from "@/app/assets/icons/cart"
-import FeaturedProduct from "@/components/featured-product"
-import Products from "@/components/products"
+import FeaturedProduct from "@/app/components/featured-product"
+import Products from "@/app/components/products"
 import { useFetchProducts } from "./hooks/useApi"
 import { useEffect, useState } from "react"
 import SpinnerIcon from "./assets/icons/spinner"

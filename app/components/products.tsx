@@ -1,6 +1,6 @@
 import FilterItems from './filter/items';
 import Product from './product';
-import Filter from '@/components/filter/index';
+import Filter from '@/app/components/filter/index';
 import { useEffect, useState } from 'react';
 import { useFetchProducts } from '@/app/hooks/useApi';
 import Sorter from './sorter';
