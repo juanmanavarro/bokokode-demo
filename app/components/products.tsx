@@ -1,9 +1,9 @@
-import FilterItems from './filter/items';
-import Product from './product';
-import Filter from '@/app/components/filter/index';
-import { useEffect, useState } from 'react';
-import { useFetchProducts } from '@/app/hooks/useApi';
-import Sorter from './sorter';
+import FilterItems from './filter/items'
+import Product from './product'
+import Filter from '@/app/components/filter/index'
+import { useEffect, useState } from 'react'
+import { useFetchProducts } from '@/app/hooks/useApi'
+import Sorter from './sorter'
 
 export default function Products() {
     const [loading, setLoading] = useState<boolean>(true)
@@ -14,7 +14,7 @@ export default function Products() {
     const [sort, setSort] = useState({
         type: 'ASC',
         key: 'price'
-    });
+    })
 
     useEffect(() => {
         useFetchProducts({ categories, page: pageIndex, sort })
@@ -30,7 +30,7 @@ export default function Products() {
         // it doesn't work update the ui, for this is better to use some state management
         if (!category) {
             setCategories([])
-            return;
+            return
         }
 
         if (categories.includes(category)) {

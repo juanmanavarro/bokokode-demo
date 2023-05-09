@@ -1,8 +1,8 @@
-import { useState } from "react";
-import AddToCart from "./add-to-cart";
+import { useState } from "react"
+import AddToCart from "./add-to-cart"
 
 export default function Product({ product, height }: { product: any, height?: string }) {
-    const [showAddToCard, setShowAddToCart] = useState(false);
+    const [showAddToCard, setShowAddToCart] = useState(false)
 
     return (
         <div className="max-w-full" key={product._id}>

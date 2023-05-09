@@ -16,7 +16,7 @@ export default function Home() {
         useFetchProducts({})
             .then(res => {
                 const featured = res?.data.data
-                    .find((product: any) => product.featured === true);
+                    .find((product: any) => product.featured === true)
                 setFeaturedProduct(featured)
                 setLoading(false)
             })

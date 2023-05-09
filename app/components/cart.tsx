@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import CartIcon from "../assets/icons/cart";
-import { CartData } from "../context/cart";
+import { useContext } from "react"
+import CartIcon from "../assets/icons/cart"
+import { CartData } from "../context/cart"
 
 export default function Cart() {
     const { cart } = useContext<any>(CartData)

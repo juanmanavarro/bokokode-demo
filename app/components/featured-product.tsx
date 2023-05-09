@@ -1,5 +1,5 @@
-import AddToCart from "./add-to-cart";
-import Product from "./product";
+import AddToCart from "./add-to-cart"
+import Product from "./product"
 
 export default function FeaturedProduct({ product }: { product: any }) {
     return (

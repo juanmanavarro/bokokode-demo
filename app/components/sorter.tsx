@@ -10,7 +10,7 @@ export default function Sorter({ onSort }: { onSort: Function }) {
         <>
             Sort by:&nbsp;
             <a className="font-bold cursor-pointer" onClick={() => {
-                const type = sort.type === 'ASC' ? 'DESC' : 'ASC';
+                const type = sort.type === 'ASC' ? 'DESC' : 'ASC'
                 setSort({ key: 'price', type })
                 onSort({ key: 'price', type })
             }}>

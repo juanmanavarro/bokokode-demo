@@ -1,14 +1,14 @@
-import CloseIcon from "@/app/assets/icons/close";
-import FilterIcon from "@/app/assets/icons/filter";
-import { useState } from "react";
-import FilterItems from "./items";
+import CloseIcon from "@/app/assets/icons/close"
+import FilterIcon from "@/app/assets/icons/filter"
+import { useState } from "react"
+import FilterItems from "./items"
 
 export default function Filter({ onFilter }: { onFilter: (category: string) => void }) {
-    const [showFilter, setShowFilter] = useState(false);
+    const [showFilter, setShowFilter] = useState(false)
 
     const setClear = () => {
-        setShowFilter(false);
-        onFilter('');
+        setShowFilter(false)
+        onFilter('')
     }
 
     return (
@@ -30,5 +30,5 @@ export default function Filter({ onFilter }: { onFilter: (category: string) => v
                 </div>
             </div>
         </div>
-    );
+    )
 }
