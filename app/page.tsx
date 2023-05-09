@@ -1,11 +1,12 @@
 'use client'
 
-import CartIcon from "@/app/assets/icons/cart"
 import FeaturedProduct from "@/app/components/featured-product"
 import Products from "@/app/components/products"
 import { useFetchProducts } from "./hooks/useApi"
 import { useEffect, useState } from "react"
 import SpinnerIcon from "./assets/icons/spinner"
+import Context from "@/app/context/cart"
+import Cart from "./components/cart"
 
 export default function Home() {
     const [featuredProduct, setFeaturedProduct] = useState<any>(null)
@@ -30,13 +31,15 @@ export default function Home() {
     }
 
     return (
-        <main className="container">
-            <header className="header">
-                <p className="logo">BEJAMAS_</p>
-                <a href=""><CartIcon /></a>
-            </header>
-            <FeaturedProduct product={featuredProduct} />
-            <Products />
-        </main>
+        <Context>
+            <main className="container">
+                <header className="header">
+                    <p className="logo">BEJAMAS_</p>
+                    <Cart />
+                </header>
+                <FeaturedProduct product={featuredProduct} />
+                <Products />
+            </main>
+        </Context>
     )
 }

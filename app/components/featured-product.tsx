@@ -8,13 +8,13 @@ export default function FeaturedProduct({ product }: { product: any }) {
                 <h1 className="title-1 max-w-md md:max-w-full">
                     {product?.name}
                 </h1>
-                <AddToCart className="hidden md:block" />
+                <AddToCart className="hidden md:block" product={product} />
             </div>
             <div className="fp-image relative mb-5 w-full">
                 <img className="w-full" src={product?.image.src} alt={product?.image.alt} />
                 <div className="caption bottom-0">Photo of the day</div>
             </div>
-            <AddToCart className="w-full md:hidden mb-5" />
+            <AddToCart className="w-full md:hidden mb-5" product={product} />
             <div className="pt-3 md:flex">
                 <div>
                     <h4 className="title-2 mb-2 md:text-2xl mb-5">About the {product?.name}</h4>

@@ -23,6 +23,7 @@ export default function Product({ product, height }: { product: any, height?: st
                 <AddToCart
                     showAddToCard={showAddToCard}
                     className="truncate w-full absolute inset-x-0 bottom-0"
+                    product={product}
                 />
             </div>
             <div className="py-2">
