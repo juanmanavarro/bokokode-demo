@@ -1,3 +1,4 @@
+import AddToCart from "./add-to-cart";
 import Product from "./product";
 
 export default function FeaturedProduct({ product }: { product: any }) {
@@ -7,13 +8,13 @@ export default function FeaturedProduct({ product }: { product: any }) {
                 <h1 className="title-1 max-w-md md:max-w-full">
                     {product?.name}
                 </h1>
-                <button className="button-black hidden md:block">Add to cart</button>
+                <AddToCart className="hidden md:block" />
             </div>
             <div className="fp-image relative mb-5 w-full">
                 <img className="w-full" src={product?.image.src} alt={product?.image.alt} />
                 <div className="caption bottom-0">Photo of the day</div>
             </div>
-            <button className="button-black w-full md:hidden mb-5">Add to cart</button>
+            <AddToCart className="w-full md:hidden mb-5" />
             <div className="pt-3 md:flex">
                 <div>
                     <h4 className="title-2 mb-2 md:text-2xl mb-5">About the {product?.name}</h4>

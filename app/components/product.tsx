@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddToCart from "./add-to-cart";
 
 export default function Product({ product, height }: { product: any, height?: string }) {
     const [showAddToCard, setShowAddToCart] = useState(false);
@@ -19,9 +20,10 @@ export default function Product({ product, height }: { product: any, height?: st
                 }}
             >
                 {product.bestseller && <div className="caption">Best seller</div>}
-                <button className={`button-black truncate w-full absolute inset-x-0 bottom-0 ${showAddToCard ? 'block' : 'hidden'}`}>
-                    Add to cart
-                </button>
+                <AddToCart
+                    showAddToCard={showAddToCard}
+                    className="truncate w-full absolute inset-x-0 bottom-0"
+                />
             </div>
             <div className="py-2">
                 <div className="capitalize text-sm text-gray-500">{product.category}</div>
